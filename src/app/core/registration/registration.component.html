@@ -1,0 +1,64 @@
+<form [formGroup]="userRegistrationForm" (ngSubmit)="userRegisterEvent()">
+    <h5>User Registration</h5>
+
+    <div>
+        <label for="fName">First Name</label>
+        <input #firstName formControlName="firstName" type="text" name="fName" id="fName"
+            placeholder="Enter your First Name">
+        <span style="color: red" *ngIf="f?.firstName?.touched && f?.firstName?.errors?.required">
+            First Name is required
+        </span>
+    </div>
+
+    <br>
+
+    <div>
+        <label for="lName">Last Name+</label>
+        <input formControlName="lastName" type="text" name="lName" id="lName" placeholder="Enter your Last Name">
+        <span style="color: red" *ngIf="f?.lastName?.touched && f?.lastName?.errors?.required">
+            Last Name is required
+        </span>
+    </div>
+
+    <br>
+
+    <!-- Nested Reactive Form Ex. -->
+    <div formGroupName="address">
+        <label for="Address">Address</label>
+        <div>
+            <label for="state">State</label>
+            <input formControlName="state" type="text" name="state" id="state">
+        </div>
+        <div>
+            <label for="city">City</label>
+            <input formControlName="city" type="text" name="city" id="city">
+        </div>
+        <div>
+            <label for="postal">Postal Code</label>
+            <input formControlName="postal" type="text" name="postal" id="postal">
+        </div>
+    </div>
+
+    <br>
+
+    <div>
+        <!-- <label for="mobileNo">Mobile No.</label>
+        <input type="tel" name="mobileNo" id="mobileNo"> -->
+
+        <button type="button" (click)="addAlternateMobileNo()">Add Mobile No.</button>
+        <div formArrayName="mobileNumbers" *ngFor="let mobile of alternateMobileNo.controls; let i = index">
+            <label for="">{{i + 1}}) Alternate Mobile No.</label>
+            <input [formControlName]="i" type="tel" name="mobileNo" id="mobileNo">
+            <button type="button" (click)="removeAlternateMobileNo(i)">Remove</button>
+        </div>
+    </div>
+
+
+    <br>
+
+    <div>
+        <button type="submit">Register</button>
+    </div>
+</form>
+
+<button (click)="userRegisterEvent()"> Forms Button </button>
