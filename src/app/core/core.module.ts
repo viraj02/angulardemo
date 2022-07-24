@@ -5,6 +5,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 // Components
 import { RegistrationComponent } from './registration/registration.component';
 
+// Angular Material
+import { MatInputModule } from '@angular/material/input';
+
 
 /**
  * Core component only to be created.
@@ -17,6 +20,7 @@ import { RegistrationComponent } from './registration/registration.component';
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    MatInputModule,
   ]
 })
 export class CoreModule { }
