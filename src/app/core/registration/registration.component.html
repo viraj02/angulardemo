@@ -52,7 +52,10 @@
 
     <div>
 
-        <button type="button" (click)="addAlternateMobileNo()">Add Mobile No.</button>
+        <button mat-mini-fab type="button" color="primary" (click)="addAlternateMobileNo()" title="Add Alternate Mobile No.">
+            <mat-icon>add_call</mat-icon>
+        </button>
+
         <div formArrayName="mobileNumbers" *ngFor="let mobile of alternateMobileNo.controls; let i = index">
             <mat-form-field>
                 <mat-label> Mobile No. ({{i + 1}}) </mat-label>
