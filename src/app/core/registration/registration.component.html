@@ -52,17 +52,28 @@
 
     <div>
 
-        <button mat-mini-fab type="button" color="primary" (click)="addAlternateMobileNo()" title="Add Alternate Mobile No.">
+        <button mat-mini-fab type="button" color="primary" (click)="addAlternateMobileNo()"
+            title="Add Alternate Mobile No.">
             <mat-icon>add_call</mat-icon>
         </button>
 
         <div formArrayName="mobileNumbers" *ngFor="let mobile of alternateMobileNo.controls; let i = index">
             <mat-form-field>
-                <mat-label> Mobile No. ({{i + 1}}) </mat-label>
+                <mat-label> 
+                    <ng-container *ngIf="i == 0;else altNumber">
+                        Mobile No.
+                    </ng-container> 
+                    <ng-template #altNumber>
+                        Alt Mobile No. ({{i}})
+                    </ng-template>   
+                </mat-label>
                 <span matPrefix>+91</span>
                 <input matInput [formControlName]="i" type="tel" name="mobileNo" id="mobileNo">
             </mat-form-field>
-            <button type="button" (click)="removeAlternateMobileNo(i)">Remove</button>
+            <button mat-icon-button type="button" [disabled]="i == 0"
+                (click)="removeAlternateMobileNo(i)" title="Delete No.">
+                <mat-icon>delete</mat-icon>
+            </button>
         </div>
     </div>
 
@@ -70,8 +81,8 @@
     <br>
 
     <div>
-        <button type="submit">Register</button>
+        <button mat-flat-button color="primary" type="submit">Register</button>
     </div>
 </form>
 
-<button (click)="userRegisterEvent()"> Forms Button </button>
+<!-- <button (click)="userRegisterEvent()"> Forms Button </button> -->
