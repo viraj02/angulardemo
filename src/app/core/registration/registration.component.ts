@@ -16,6 +16,8 @@ export class RegistrationComponent implements OnInit {
 
   ngOnInit(): void {
     this.initilizeForms();
+
+    this.addAlternateMobileNo();
   }
 
   // Initilize form
