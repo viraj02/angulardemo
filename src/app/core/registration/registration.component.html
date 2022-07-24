@@ -54,8 +54,11 @@
 
         <button type="button" (click)="addAlternateMobileNo()">Add Mobile No.</button>
         <div formArrayName="mobileNumbers" *ngFor="let mobile of alternateMobileNo.controls; let i = index">
-            <label for="">{{i + 1}}) Alternate Mobile No.</label>
-            <input [formControlName]="i" type="tel" name="mobileNo" id="mobileNo">
+            <mat-form-field>
+                <mat-label> Mobile No. ({{i + 1}}) </mat-label>
+                <span matPrefix>+91</span>
+                <input matInput [formControlName]="i" type="tel" name="mobileNo" id="mobileNo">
+            </mat-form-field>
             <button type="button" (click)="removeAlternateMobileNo(i)">Remove</button>
         </div>
     </div>
