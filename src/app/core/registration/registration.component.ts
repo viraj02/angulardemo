@@ -16,6 +16,8 @@ export class RegistrationComponent implements OnInit {
 
   ngOnInit(): void {
     this.initilizeForms();
+
+    this.addAlternateMobileNo();
   }
 
   // Initilize form
@@ -44,7 +46,10 @@ export class RegistrationComponent implements OnInit {
     this.alternateMobileNo.push(this.formBuilder.control('', [Validators.required]));
   }
 
+  /** @param mobNoIndex Control index number */
   removeAlternateMobileNo(mobNoIndex: number): void {
+    // Index zero mobile number field can't be removed
+    if (mobNoIndex === 0) return;
     this.alternateMobileNo.removeAt(mobNoIndex);
   }
 
