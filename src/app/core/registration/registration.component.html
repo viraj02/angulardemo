@@ -52,28 +52,37 @@
 
     <div>
 
-        <button mat-mini-fab type="button" color="primary" (click)="addAlternateMobileNo()"
-            title="Add Alternate Mobile No.">
-            <mat-icon>add_call</mat-icon>
-        </button>
-
         <div formArrayName="mobileNumbers" *ngFor="let mobile of alternateMobileNo.controls; let i = index">
+
             <mat-form-field>
-                <mat-label> 
+                <mat-label>
                     <ng-container *ngIf="i == 0;else altNumber">
                         Mobile No.
-                    </ng-container> 
+                    </ng-container>
                     <ng-template #altNumber>
                         Alt Mobile No. ({{i}})
-                    </ng-template>   
+                    </ng-template>
                 </mat-label>
                 <span matPrefix>+91</span>
                 <input matInput [formControlName]="i" type="tel" name="mobileNo" id="mobileNo">
             </mat-form-field>
-            <button mat-icon-button type="button" [disabled]="i == 0"
-                (click)="removeAlternateMobileNo(i)" title="Delete No.">
-                <mat-icon>delete</mat-icon>
-            </button>
+
+            <!-- Default button with add icon -->
+            <ng-container *ngIf="i == 0;else deleteBtn">
+                <button mat-mini-fab type="button" color="primary" (click)="addAlternateMobileNo()"
+                    title="Add Alternate Mobile No.">
+                    <mat-icon>add_call</mat-icon>
+                </button>
+            </ng-container>
+
+            <!-- Delete Button -->
+            <ng-template #deleteBtn>
+                <button mat-icon-button type="button" [disabled]="i == 0" (click)="removeAlternateMobileNo(i)"
+                    title="Delete No.">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </ng-template>
+
         </div>
     </div>
 
