@@ -43,7 +43,12 @@ export class RegistrationComponent implements OnInit {
 
 
   addAlternateMobileNo(): void {
-    this.alternateMobileNo.push(this.formBuilder.control('', [Validators.required]));
+    this.alternateMobileNo.push(this.formBuilder.control('', [
+      Validators.required,
+      Validators.minLength(10),
+      Validators.maxLength(10),
+      Validators.pattern('^[0-9]*$')
+    ]));
   }
 
   /** @param mobNoIndex Control index number */
