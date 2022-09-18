@@ -24,14 +24,15 @@ export class RegistrationComponent implements OnInit {
   initilizeForms(): void {
     this.userRegistrationForm = this.formBuilder.group(
       {
-        firstName: ['', [ Validators.required ]],
-        lastName: ['', [ Validators.required ]],
+        firstName: ['', [Validators.required]],
+        lastName: ['', [Validators.required]],
         address: this.formBuilder.group({
-          state: [ '', [ Validators.required ]],
-          city: [ '', [ Validators.required ]],
-          postal: [ '', [ Validators.required ]]
+          state: ['', [Validators.required]],
+          city: ['', [Validators.required]],
+          postal: ['', [Validators.required]]
         }),
-        mobileNumbers: this.formBuilder.array([])
+        mobileNumbers: this.formBuilder.array([]),
+        email: ['', [Validators.required]]
       }
     );
   }
