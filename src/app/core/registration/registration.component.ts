@@ -34,7 +34,9 @@ export class RegistrationComponent implements OnInit {
           postal: ['', [Validators.required]]
         }),
         mobileNumbers: this.formBuilder.array([]),
-        email: ['', [Validators.required]]
+        email: ['', [Validators.required]],
+        password: ['', [Validators.required]],
+        cpassword: ['', [Validators.required]]
       }
     );
   }

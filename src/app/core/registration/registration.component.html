@@ -58,6 +58,28 @@
         </div>
 
         <div>
+            <mat-form-field class="form-input">
+                <mat-label> Password <span>*</span> </mat-label>
+                <input matInput formControlName="password" type="password" name="password" id="password"
+                    placeholder="Enter your Email">
+                <mat-error *ngIf="f?.password?.touched && f?.password?.errors?.required">
+                    Password is required
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field class="form-input">
+                <mat-label> Confirm Password <span>*</span> </mat-label>
+                <input matInput formControlName="cpassword" type="password" name="cpassword" id="cpassword"
+                    placeholder="Enter your Email">
+                <mat-error *ngIf="f?.cpassword?.touched && f?.cpassword?.errors?.required">
+                    Confirm Password is required
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div>
 
             <div formArrayName="mobileNumbers" *ngFor="let mobile of alternateMobileNo.controls; let i = index">
 
