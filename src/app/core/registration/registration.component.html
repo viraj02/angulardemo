@@ -4,7 +4,7 @@
 
         <div>
             <mat-form-field class="form-input">
-                <mat-label>First Name</mat-label>
+                <mat-label>First Name <span>*</span> </mat-label>
                 <input matInput formControlName="firstName" type="text" name="fName" id="fName"
                     placeholder="Enter your First Name">
                 <mat-error *ngIf="f?.firstName?.touched && f?.firstName?.errors?.required">
@@ -15,7 +15,7 @@
 
         <div> -->
             <mat-form-field class="form-input">
-                <mat-label>Last Name</mat-label>
+                <mat-label>Last Name <span>*</span> </mat-label>
                 <input matInput formControlName="lastName" type="text" name="lName" id="lName"
                     placeholder="Enter your Last Name">
                 <mat-error style="color: red" *ngIf="f?.lastName?.touched && f?.lastName?.errors?.required">
@@ -30,17 +30,17 @@
             <div>Address</div>
 
             <mat-form-field class="form-input">
-                <mat-label>State</mat-label>
+                <mat-label>State <span>*</span> </mat-label>
                 <input matInput formControlName="state" type="text" name="state" id="state">
             </mat-form-field>
 
             <mat-form-field class="form-input">
-                <mat-label>City</mat-label>
+                <mat-label>City <span>*</span> </mat-label>
                 <input matInput formControlName="city" type="text" name="city" id="city">
             </mat-form-field>
 
             <mat-form-field class="form-input">
-                <mat-label>Postal Code</mat-label>
+                <mat-label>Postal Code <span>*</span> </mat-label>
                 <input matInput formControlName="postal" type="text" name="postal" id="postal">
             </mat-form-field>
 
@@ -59,6 +59,7 @@
                         <ng-template #altNumber>
                             Alt Mobile No. ({{i}})
                         </ng-template>
+                        <span>*</span>
                     </mat-label>
                     <span matPrefix>+91</span>
                     <input matInput [formControlName]="i" type="tel" name="mobileNo" id="mobileNo">

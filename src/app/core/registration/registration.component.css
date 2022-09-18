@@ -5,7 +5,7 @@
     height: 100vh;
 }
 
-.form-input {
+.formWrapper .form-input {
     padding-right: 5px;
 }
 
