@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -12,6 +13,7 @@ export class RegistrationComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
+    private route: Router,
   ) { }
 
   ngOnInit(): void {
@@ -62,6 +64,11 @@ export class RegistrationComponent implements OnInit {
   // Register button click event
   userRegisterEvent(): void {
     console.log(this.f);
+  }
+
+  /** @param url routing path */
+  navigate(url: string): void {
+    this.route.navigateByUrl(url);
   }
 
 }
