@@ -1,0 +1,11 @@
+.formWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.formWrapper .form-input {
+    padding-right: 5px;
+}
+
