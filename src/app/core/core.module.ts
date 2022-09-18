@@ -9,6 +9,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -18,7 +19,8 @@ import { MatIconModule } from '@angular/material/icon';
  */
 @NgModule({
   declarations: [
-    RegistrationComponent
+    RegistrationComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,

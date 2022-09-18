@@ -1,0 +1,42 @@
+<div class="formWrapper">
+
+    <form [formGroup]="userRegistrationForm" (ngSubmit)="userLoginEvent()">
+        <h5 class="bold-text">User Login</h5>
+
+
+        <div>
+            <mat-form-field class="form-input">
+                <mat-label> Email <span>*</span> </mat-label>
+                <input matInput formControlName="email" type="email" name="email" id="email"
+                    placeholder="Register Email Address" autocomplete="off">
+                <mat-error *ngIf="f?.email?.touched && f?.email?.errors?.required">
+                    Email is required
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field class="form-input">
+                <mat-label> Password <span>*</span> </mat-label>
+                <input matInput formControlName="password" type="password" name="password" id="password"
+                    placeholder="Password" autocomplete="off">
+                <mat-error *ngIf="f?.password?.touched && f?.password?.errors?.required">
+                    Password is required
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <button mat-flat-button color="primary" type="submit"
+                title="Click here to login">Login</button>
+        </div>
+
+        <div>
+            <button mat-button type="button" title="Click here to create new account." (click)="navigate('register')">
+                Not having account? </button>
+        </div>
+
+
+    </form>
+
+</div>
