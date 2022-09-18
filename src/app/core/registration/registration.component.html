@@ -1,97 +1,90 @@
-<form [formGroup]="userRegistrationForm" (ngSubmit)="userRegisterEvent()">
-    <h5>User Registration</h5>
+<div class="formWrapper">
+    <form [formGroup]="userRegistrationForm" (ngSubmit)="userRegisterEvent()">
+        <h5 class="bold-text">User Registration</h5>
 
-    <div>
-        <mat-form-field>
-            <mat-label>First Name</mat-label>
-            <input matInput formControlName="firstName" type="text" name="fName" id="fName"
-                placeholder="Enter your First Name">
-            <mat-error *ngIf="f?.firstName?.touched && f?.firstName?.errors?.required">
-                First Name is required
-            </mat-error>
-        </mat-form-field>
-    </div>
+        <div>
+            <mat-form-field class="form-input">
+                <mat-label>First Name</mat-label>
+                <input matInput formControlName="firstName" type="text" name="fName" id="fName"
+                    placeholder="Enter your First Name">
+                <mat-error *ngIf="f?.firstName?.touched && f?.firstName?.errors?.required">
+                    First Name is required
+                </mat-error>
+            </mat-form-field>
+        <!-- </div>
 
-    <br>
+        <div> -->
+            <mat-form-field class="form-input">
+                <mat-label>Last Name</mat-label>
+                <input matInput formControlName="lastName" type="text" name="lName" id="lName"
+                    placeholder="Enter your Last Name">
+                <mat-error style="color: red" *ngIf="f?.lastName?.touched && f?.lastName?.errors?.required">
+                    Last Name is required
+                </mat-error>
+            </mat-form-field>
+        </div>
 
-    <div>
-        <mat-form-field>
-            <mat-label>Last Name</mat-label>
-            <input matInput formControlName="lastName" type="text" name="lName" id="lName"
-                placeholder="Enter your Last Name">
-            <mat-error style="color: red" *ngIf="f?.lastName?.touched && f?.lastName?.errors?.required">
-                Last Name is required
-            </mat-error>
-        </mat-form-field>
-    </div>
 
-    <br>
+        <!-- Nested Reactive Form Ex. -->
+        <div formGroupName="address">
+            <div>Address</div>
 
-    <!-- Nested Reactive Form Ex. -->
-    <div formGroupName="address">
-        <div>Address</div>
-
-        <mat-form-field>
-            <mat-label>State</mat-label>
-            <input matInput formControlName="state" type="text" name="state" id="state">
-        </mat-form-field>
-
-        <mat-form-field>
-            <mat-label>City</mat-label>
-            <input matInput formControlName="city" type="text" name="city" id="city">
-        </mat-form-field>
-
-        <mat-form-field>
-            <mat-label>Postal Code</mat-label>
-            <input matInput formControlName="postal" type="text" name="postal" id="postal">
-        </mat-form-field>
-
-    </div>
-
-    <br>
-
-    <div>
-
-        <div formArrayName="mobileNumbers" *ngFor="let mobile of alternateMobileNo.controls; let i = index">
-
-            <mat-form-field>
-                <mat-label>
-                    <ng-container *ngIf="i == 0;else altNumber">
-                        Mobile No.
-                    </ng-container>
-                    <ng-template #altNumber>
-                        Alt Mobile No. ({{i}})
-                    </ng-template>
-                </mat-label>
-                <span matPrefix>+91</span>
-                <input matInput [formControlName]="i" type="tel" name="mobileNo" id="mobileNo">
+            <mat-form-field class="form-input">
+                <mat-label>State</mat-label>
+                <input matInput formControlName="state" type="text" name="state" id="state">
             </mat-form-field>
 
-            <!-- Default button with add icon -->
-            <ng-container *ngIf="i == 0;else deleteBtn">
-                <button mat-mini-fab type="button" color="primary" (click)="addAlternateMobileNo()"
-                    title="Add Alternate Mobile No.">
-                    <mat-icon>add_call</mat-icon>
-                </button>
-            </ng-container>
+            <mat-form-field class="form-input">
+                <mat-label>City</mat-label>
+                <input matInput formControlName="city" type="text" name="city" id="city">
+            </mat-form-field>
 
-            <!-- Delete Button -->
-            <ng-template #deleteBtn>
-                <button mat-icon-button type="button" [disabled]="i == 0" (click)="removeAlternateMobileNo(i)"
-                    title="Delete No.">
-                    <mat-icon>delete</mat-icon>
-                </button>
-            </ng-template>
+            <mat-form-field class="form-input">
+                <mat-label>Postal Code</mat-label>
+                <input matInput formControlName="postal" type="text" name="postal" id="postal">
+            </mat-form-field>
 
         </div>
-    </div>
 
 
-    <br>
+        <div>
 
-    <div>
-        <button mat-flat-button color="primary" type="submit">Register</button>
-    </div>
-</form>
+            <div formArrayName="mobileNumbers" *ngFor="let mobile of alternateMobileNo.controls; let i = index">
 
-<!-- <button (click)="userRegisterEvent()"> Forms Button </button> -->
+                <mat-form-field>
+                    <mat-label>
+                        <ng-container *ngIf="i == 0;else altNumber">
+                            Mobile No.
+                        </ng-container>
+                        <ng-template #altNumber>
+                            Alt Mobile No. ({{i}})
+                        </ng-template>
+                    </mat-label>
+                    <span matPrefix>+91</span>
+                    <input matInput [formControlName]="i" type="tel" name="mobileNo" id="mobileNo">
+                </mat-form-field>
+
+                <!-- Default button with add icon -->
+                <ng-container *ngIf="i == 0;else deleteBtn">
+                    <button mat-mini-fab type="button" color="primary" (click)="addAlternateMobileNo()"
+                        title="Add Alternate Mobile No.">
+                        <mat-icon>add_call</mat-icon>
+                    </button>
+                </ng-container>
+
+                <!-- Delete Button -->
+                <ng-template #deleteBtn>
+                    <button mat-icon-button type="button" [disabled]="i == 0" (click)="removeAlternateMobileNo(i)"
+                        title="Delete No.">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </ng-template>
+
+            </div>
+        </div>
+
+        <div>
+            <button mat-flat-button color="primary" type="submit">Register</button>
+        </div>
+    </form>
+</div>
