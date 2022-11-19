@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MustMatch } from '../custom-validation/must-match.validators';
 
 @Component({
   selector: 'app-registration',
@@ -37,6 +38,9 @@ export class RegistrationComponent implements OnInit {
         email: ['', [Validators.required]],
         password: ['', [Validators.required]],
         cpassword: ['', [Validators.required]]
+      },
+      {
+        validator: MustMatch('password', 'cpassword')
       }
     );
   }
