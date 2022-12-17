@@ -7,10 +7,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 
 
 const MATERIAL_MODULE = [
-  MatInputModule, MatButtonModule, MatIconModule, MatToolbarModule, MatSidenavModule
+  MatInputModule, MatButtonModule, MatIconModule, MatToolbarModule, MatSidenavModule, MatListModule
 ];
 
 

@@ -1,2 +1,35 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <button mat-icon-button>
+            <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+        </button>
+        <h1>My Property</h1>
 
-<router-outlet></router-outlet>
+        <span class="spacer"></span>
+
+        <div class="nav-link hidden-mobile">
+            <a>Home</a>
+            <a>Account</a>
+            <a>About Us</a>
+            <a>Contact Us</a>
+            <a>Help</a>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav>
+        <mat-nav-list>
+            <a mat-list-item>Home</a>
+            <a mat-list-item>Account</a>
+            <a mat-list-item>About Us</a>
+            <a mat-list-item>Contact Us</a>
+            <a mat-list-item>Help</a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="main-div">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

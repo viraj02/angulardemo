@@ -1,0 +1,23 @@
+.spacer {
+    flex: 1 1 auto;
+}
+
+
+.main-div {
+    height: calc(100vh - 70px);
+}
+
+.nav-link a {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+mat-nav-list {
+    width: 200px;
+}
+
+@media (max-width: 767px) {
+    .hidden-mobile {
+      display: none;
+    }
+  }
