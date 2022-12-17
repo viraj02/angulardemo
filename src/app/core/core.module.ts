@@ -8,6 +8,7 @@ import { RegistrationComponent } from './registration/registration.component';
 
 import { LoginComponent } from './login/login.component';
 import { MaterialModule } from '../material/material.module';
+import { HeaderComponent } from './header/header.component';
 
 
 
@@ -18,12 +19,16 @@ import { MaterialModule } from '../material/material.module';
 @NgModule({
   declarations: [
     RegistrationComponent,
-    LoginComponent
+    LoginComponent,
+    HeaderComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
+    MaterialModule,
+  ],
+  exports: [
     MaterialModule,
   ]
 })
