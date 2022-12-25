@@ -1,0 +1,23 @@
+.todo-wrapper {
+    display: flex;
+    justify-content: center;
+
+    /* background-image: linear-gradient(blue, white); */
+}
+
+.todo-container {
+    height: 400px;
+    width: 500px;
+    margin-top: 20px;
+    background-color: rgb(198, 225, 225);
+    border-radius: 3px;
+    /* border: 1px solid red; */
+    /* box-shadow: 1px 0px 20px rgb(77, 53, 232); */
+}
+
+.todo-container .title {
+    font-weight: bold;
+    font-size: 24px;
+    margin: 10px;
+}
+

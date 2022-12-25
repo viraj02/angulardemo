@@ -11,6 +11,9 @@ const routes: Routes = [
     path: 'login', component: LoginComponent
   },
   {
+    path: 'todo', loadChildren: () => import('./todo/todo.module').then(m => m.TodoModule)
+  },
+  {
     path: '', redirectTo: 'register', pathMatch: 'full'
   },
   {
