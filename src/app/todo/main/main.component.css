@@ -7,7 +7,7 @@
 
 .todo-container {
     height: 400px;
-    width: 500px;
+    /* width: 500px; */
     margin-top: 20px;
     background-color: rgb(198, 225, 225);
     border-radius: 3px;
@@ -20,4 +20,9 @@
     font-size: 24px;
     margin: 10px;
 }
+
+.add-todo-textfield {
+    /* width: 430px; */
+}
+
 
