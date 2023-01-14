@@ -1,17 +1,21 @@
-<div class="container-fluid todo-wrapper">
+<div class="todo-wrapper container-fluid">
 
-    <div class="todo-container container">
+    <div class="todo-container container-fluid">
 
         <div class="row">
             <div class="title col-12">Todo List</div>
         </div>
 
-        <div class="row mt-2 p-2">
-            <input type="text" class="form-control add-todo-textfield col-lg-1" 
-                [value]="todoInput"
-                (keyup)="todoChange($event)" 
-                placeholder="Add your new todo">
-            <button class="btn btn-primary col-lg-1 mx-1" (click)="addNewTodoTask()">+</button>
+        <div class="row">
+            <div class="col-sm-12 col-md-8 col-lg-11">
+                <input type="text" class="form-control add-todo-textfield" 
+                    [value]="todoInput"
+                    (keyup)="todoChange($event)" 
+                    placeholder="Add your new todo">
+            </div>
+            <div class="col-sm-12 col-md-4 col-lg-1 mt-sm-1">
+                <button class="btn btn-primary" (click)="addNewTodoTask()">+</button>
+            </div>
         </div>
         
         <div class="row">
