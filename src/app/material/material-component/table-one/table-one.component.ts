@@ -1,30 +1,50 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-material-table-one',
   templateUrl: './table-one.component.html',
   styleUrls: ['./table-one.component.css']
 })
-export class TableOneComponent implements OnInit {
+export class TableOneComponent implements OnInit, OnChanges {
 
-  dataSource: any[] = [
-    {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-    {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-    {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-    {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-    {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-    {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-    {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-    {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-    {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-    {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
+  @Input() tableData: any = [];
+
+  dataSource: any[] = [];
+
+  displayedColumnObj = [
+    {
+      id: 1,
+      name: 'Sr No.',
+      key: 'srNo'
+    },
+    {
+      id: 2,
+      name: 'Task Name',
+      key: 'taskName'
+    },
+    {
+      id: 3,
+      name: 'Date',
+      key: 'date'
+    }
   ];
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns = [];
 
   constructor() { }
 
   ngOnInit(): void {
+    this.displayedColumns = this.displayedColumnObj.map(c => c.key);
+  }
+
+  ngOnChanges(): void {
+    if (this.tableData.length === 0) return;
+
+    this.updateTableData(this.tableData);
+  }
+
+  updateTableData(data: any): void {
+    this.dataSource = data;
   }
 
 }

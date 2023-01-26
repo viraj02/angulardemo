@@ -23,11 +23,11 @@
 
         <div class="todo-task">
 
-            <div *ngFor="let todo of todoList;let i = index;">
+            <!-- <div *ngFor="let todo of todoList;let i = index;">
                 {{ i }} {{ todo }}
-            </div>
+            </div> -->
 
-            <app-material-table-one></app-material-table-one>
+            <app-material-table-one [tableData]="todoList"></app-material-table-one>
 
         </div>
 
