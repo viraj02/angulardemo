@@ -1,8 +1,16 @@
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
   <ng-container *ngFor="let column of displayedColumnObj" [matColumnDef]="column?.key">
-    <th style="width: 100px;" mat-header-cell *matHeaderCellDef> {{ column?.name }} </th>
-    <td style="width: 100px;" mat-cell *matCellDef="let element"> {{ element[column?.key] }} </td>
+    
+    <ng-container *ngIf="column?.key == 'button';else defaultColumn">
+      <th style="width: 100px;" mat-header-cell *matHeaderCellDef></th>
+      <td style="width: 100px;" mat-cell *matCellDef="let element"> <button>Delete</button> </td>
+    </ng-container>
+  
+    <ng-template #defaultColumn>
+      <th style="width: 100px;" mat-header-cell *matHeaderCellDef> {{ column?.name }} </th>
+      <td style="width: 100px;" mat-cell *matCellDef="let element"> {{ element[column?.key] }} </td>
+    </ng-template>
   </ng-container>
 
 

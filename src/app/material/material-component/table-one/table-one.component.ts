@@ -13,6 +13,11 @@ export class TableOneComponent implements OnInit, OnChanges {
 
   displayedColumnObj = [
     {
+      id: 4,
+      name: 'Button',
+      key: 'button'
+    },
+    {
       id: 1,
       name: 'Sr No.',
       key: 'srNo'
