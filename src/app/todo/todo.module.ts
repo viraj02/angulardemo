@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { TodoRoutingModule } from './todo-routing.module';
 import { MainComponent } from './main/main.component';
+import { MaterialComponentModule } from '../material/material-component/material-component.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { MainComponent } from './main/main.component';
   ],
   imports: [
     CommonModule,
-    TodoRoutingModule
+    TodoRoutingModule,
+    MaterialComponentModule
   ]
 })
 export class TodoModule { }

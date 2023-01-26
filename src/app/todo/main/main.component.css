@@ -6,7 +6,7 @@
 }
 
 .todo-container {
-    height: 400px;
+    height: auto;
     /* width: 500px; */
     margin-top: 20px;
     background-color: rgb(198, 225, 225);
