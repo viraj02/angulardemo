@@ -1,4 +1,4 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<table mat-table [dataSource]="dataSource" class="table-container mat-elevation-z8">
 
   <ng-container *ngFor="let column of displayedColumnObj" [matColumnDef]="column?.key">
     
@@ -14,8 +14,8 @@
   </ng-container>
 
 
-  <tr style="width: 100px;" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr style="width: 100px;" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  <tr style="width: 100px; height: 50px;" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr style="width: 100px; height: 50px;" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
   <tr class="mat-row" *matNoDataRow>
     <td style="width: 100px;" class="mat-cell">No Task Available</td>
